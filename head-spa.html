@@ -71,7 +71,8 @@
   .spa-cat { font-size: 0.68rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 0.8rem; }
   .spa-name { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 400; margin-bottom: 0.8rem; line-height: 1.2; }
   .spa-desc { color: var(--stone-dark); font-size: 0.9rem; line-height: 1.8; margin-bottom: 1.5rem; }
-  .spa-packages { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; margin-bottom: 1.5rem; }
+  .spa-packages { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; }
+  .spa-packages .spa-pkg { min-width: 160px; }
   .spa-pkg { background: var(--cream); border: 1px solid rgba(168,145,137,0.2); padding: 0.6rem; text-align: center; cursor: pointer; transition: all 0.2s; }
   .spa-pkg:hover, .spa-pkg.active { border-color: var(--terracotta); }
   .spa-pkg-name { font-size: 0.62rem; color: var(--stone); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.2rem; }
@@ -195,9 +196,9 @@
       <p class="spa-desc">Un soin ciblé pour le cuir chevelu combinant massages profonds, soins hydratants et techniques japonaises. Purification, équilibre et relaxation en 60 minutes.</p>
       <div class="spa-packages">
         <div class="spa-pkg active"><div class="spa-pkg-name">1 séance</div><div class="spa-pkg-price">98 $</div></div>
-        <div class="spa-pkg"><div class="spa-pkg-name">3 séances</div><div class="spa-pkg-price">280 $</div><div class="spa-pkg-per">93 $ / séance</div></div>
-        <div class="spa-pkg"><div class="spa-pkg-name">6 séances</div><div class="spa-pkg-price">530 $</div><div class="spa-pkg-per">88 $ / séance</div></div>
-        <div class="spa-pkg"><div class="spa-pkg-name">10 séances</div><div class="spa-pkg-price">850 $</div><div class="spa-pkg-per">85 $ / séance</div></div>
+<div class="spa-pkg-per">93 $ / séance</div></div>
+<div class="spa-pkg-per">88 $ / séance</div></div>
+<div class="spa-pkg-per">85 $ / séance</div></div>
       </div>
       <div class="spa-actions">
         <button class="btn-terra-out" onclick="window.open('https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf','_blank')">Acheter des séances</button>
@@ -219,9 +220,9 @@
       <p class="spa-desc">Notre expérience la plus complète — 90 minutes de massage complet : cuir chevelu, visage, décolleté, épaules et bras. Un vrai moment pour relâcher les tensions et recharger votre énergie.</p>
       <div class="spa-packages">
         <div class="spa-pkg active"><div class="spa-pkg-name">1 séance</div><div class="spa-pkg-price">126 $</div></div>
-        <div class="spa-pkg"><div class="spa-pkg-name">3 séances</div><div class="spa-pkg-price">360 $</div><div class="spa-pkg-per">120 $ / séance</div></div>
-        <div class="spa-pkg"><div class="spa-pkg-name">6 séances</div><div class="spa-pkg-price">680 $</div><div class="spa-pkg-per">113 $ / séance</div></div>
-        <div class="spa-pkg"><div class="spa-pkg-name">10 séances</div><div class="spa-pkg-price">1 100 $</div><div class="spa-pkg-per">110 $ / séance</div></div>
+<div class="spa-pkg-per">120 $ / séance</div></div>
+<div class="spa-pkg-per">113 $ / séance</div></div>
+<div class="spa-pkg-per">110 $ / séance</div></div>
       </div>
       <div class="spa-actions">
         <button class="btn-terra-out" onclick="window.open('https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf','_blank')">Acheter des séances</button>
@@ -243,9 +244,9 @@
       <p class="spa-desc">Un moment de bien-être partagé à deux — idéal pour offrir ou vivre une expérience spa inoubliable. Les deux personnes se traitent en même temps.</p>
       <div class="spa-packages">
         <div class="spa-pkg active"><div class="spa-pkg-name">1 séance</div><div class="spa-pkg-price">196 $</div></div>
-        <div class="spa-pkg"><div class="spa-pkg-name">3 séances</div><div class="spa-pkg-price">560 $</div><div class="spa-pkg-per">187 $ / séance</div></div>
-        <div class="spa-pkg"><div class="spa-pkg-name">6 séances</div><div class="spa-pkg-price">1 060 $</div><div class="spa-pkg-per">177 $ / séance</div></div>
-        <div class="spa-pkg"><div class="spa-pkg-name">10 séances</div><div class="spa-pkg-price">1 700 $</div><div class="spa-pkg-per">170 $ / séance</div></div>
+<div class="spa-pkg-per">187 $ / séance</div></div>
+<div class="spa-pkg-per">177 $ / séance</div></div>
+<div class="spa-pkg-per">170 $ / séance</div></div>
       </div>
       <div class="spa-actions">
         <button class="btn-terra-out" onclick="window.open('https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf','_blank')">Acheter des séances</button>
@@ -267,9 +268,9 @@
       <p class="spa-desc">L'expérience signature partagée à deux. Relaxation profonde, soins revitalisants et rituels sensoriels exclusifs pour deux personnes.</p>
       <div class="spa-packages">
         <div class="spa-pkg active"><div class="spa-pkg-name">1 séance</div><div class="spa-pkg-price">252 $</div></div>
-        <div class="spa-pkg"><div class="spa-pkg-name">3 séances</div><div class="spa-pkg-price">720 $</div><div class="spa-pkg-per">240 $ / séance</div></div>
-        <div class="spa-pkg"><div class="spa-pkg-name">6 séances</div><div class="spa-pkg-price">1 360 $</div><div class="spa-pkg-per">227 $ / séance</div></div>
-        <div class="spa-pkg"><div class="spa-pkg-name">10 séances</div><div class="spa-pkg-price">2 200 $</div><div class="spa-pkg-per">220 $ / séance</div></div>
+<div class="spa-pkg-per">240 $ / séance</div></div>
+<div class="spa-pkg-per">227 $ / séance</div></div>
+<div class="spa-pkg-per">220 $ / séance</div></div>
       </div>
       <div class="spa-actions">
         <button class="btn-terra-out" onclick="window.open('https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf','_blank')">Acheter des séances</button>
@@ -291,9 +292,9 @@
       <p class="spa-desc">Un rituel de bien-être partagé en trio — parfait pour célébrer avec des proches. Trois personnes simultanément dans notre espace chaleureux.</p>
       <div class="spa-packages">
         <div class="spa-pkg active"><div class="spa-pkg-name">1 séance</div><div class="spa-pkg-price">378 $</div></div>
-        <div class="spa-pkg"><div class="spa-pkg-name">3 séances</div><div class="spa-pkg-price">1 080 $</div><div class="spa-pkg-per">360 $ / séance</div></div>
-        <div class="spa-pkg"><div class="spa-pkg-name">6 séances</div><div class="spa-pkg-price">2 040 $</div><div class="spa-pkg-per">340 $ / séance</div></div>
-        <div class="spa-pkg"><div class="spa-pkg-name">10 séances</div><div class="spa-pkg-price">3 300 $</div><div class="spa-pkg-per">330 $ / séance</div></div>
+<div class="spa-pkg-per">360 $ / séance</div></div>
+<div class="spa-pkg-per">340 $ / séance</div></div>
+<div class="spa-pkg-per">330 $ / séance</div></div>
       </div>
       <div class="spa-actions">
         <button class="btn-terra-out" onclick="window.open('https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf','_blank')">Acheter des séances</button>
