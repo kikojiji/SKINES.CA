@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Épilation Laser · Skine's Spa Montréal</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg-dark: #F5F0EA;
+    --bg-card: #FAF6F1;
+    --bg-card-hover: #F0EAE2;
+    --pink: #C68B6E;
+    --pink-light: #D4A08A;
+    --pink-dark: #B8755A;
+    --text-white: #3A342F;
+    --text-gray: #7A6A62;
+    --text-dim: #A39189;
+    --border: rgba(163, 145, 137, 0.2);
+    --border-pink: #C68B6E;
+    --charcoal: #3A342F;
+    --cream: #F5F0EA;
+    --gold: #C9A878;
+    --terracotta-light: #E8D4C5;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-dark);
+    color: var(--text-white);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* ===== TOP BAR ===== */
+  .top-bar {
+    background: var(--charcoal);
+    color: rgba(245,240,234,0.8);
+    padding: 0.5rem 3rem;
+    font-size: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* ===== NAV ===== */
+  nav {
+    background: var(--bg-dark);
+    padding: 1.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border);
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    text-decoration: none;
+  }
+  .logo-stones { width: 36px; height: 44px; position: relative; }
+  .logo-stones .stone { position: absolute; border-radius: 50%; left: 50%; transform: translateX(-50%); }
+  .stone-top { width: 12px; height: 8px; background: #A39189; top: 0; }
+  .stone-mid { width: 22px; height: 13px; background: #B8755A; top: 10px; }
+  .stone-bot { width: 32px; height: 18px; background: #C68B6E; top: 24px; }
+  .logo-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.4em;
+    color: var(--charcoal);
+    font-weight: 500;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-white);
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--pink); }
+  .nav-cta {
+    background: var(--charcoal);
+    color: var(--cream);
+    padding: 0.8rem 1.8rem;
+    border: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--pink); }
+
+  /* ===== HERO ===== */
+  .laser-hero {
+    padding: 5rem 3rem 3rem;
+    text-align: center;
+    background: var(--charcoal);
+    color: var(--cream);
+    border-bottom: 1px solid rgba(163,145,137,0.3);
+  }
+  .breadcrumb {
+    font-size: 0.78rem;
+    color: rgba(245,240,234,0.5);
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .breadcrumb a { color: rgba(245,240,234,0.5); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--gold); }
+  .laser-hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 4.5rem;
+    color: var(--pink);
+    font-weight: 500;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+  .laser-hero .subtitle {
+    font-size: 1.1rem;
+    color: rgba(245,240,234,0.75);
+    max-width: 700px;
+    margin: 0 auto 2rem;
+  }
+
+  /* ===== SEARCH & FILTER BAR ===== */
+  .filter-bar {
+    background: var(--cream);
+    padding: 1.5rem 3rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 80px;
+    z-index: 50;
+    box-shadow: 0 2px 20px rgba(58,52,47,0.06);
+  }
+  .search-input {
+    flex: 1;
+    min-width: 260px;
+    background: var(--bg-dark);
+    border: 1px solid var(--border);
+    color: var(--text-white);
+    padding: 0.8rem 1.2rem;
+    font-size: 0.9rem;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .search-input:focus { border-color: var(--pink); }
+  .search-input::placeholder { color: var(--text-dim); }
+  .filter-btn {
+    background: transparent;
+    color: var(--text-white);
+    border: 1px solid var(--border);
+    padding: 0.7rem 1.4rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.2s;
+  }
+  .filter-btn:hover { border-color: var(--pink); color: var(--pink); }
+  .filter-btn.active {
+    background: var(--pink);
+    border-color: var(--pink);
+    color: white;
+  }
+  .filter-count {
+    margin-left: auto;
+    font-size: 0.85rem;
+    color: var(--text-gray);
+  }
+  .filter-count strong { color: var(--charcoal); font-weight: 500; }
+
+  /* ===== SERVICES GRID ===== */
+  .services-section {
+    padding: 3rem 3rem 6rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    background: var(--bg-dark);
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  /* ===== SERVICE CARD ===== */
+  .service-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+  }
+  .service-card:hover {
+    border-color: var(--pink);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(198,139,110,0.15);
+  }
+
+  .service-image {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: var(--terracotta-light);
+    overflow: hidden;
+    position: relative;
+  }
+  .service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+  }
+  .service-card:hover .service-image img { transform: scale(1.05); }
+  .service-image .img-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--terracotta-light) 0%, #E0CCBC 100%);
+    color: var(--text-gray);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+  }
+  .service-zone-tag {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: var(--charcoal);
+    color: rgba(245,240,234,0.9);
+    padding: 0.3rem 0.8rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .service-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background: var(--bg-card);
+  }
+  .service-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--pink);
+    font-size: 1.6rem;
+    line-height: 1.2;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+    min-height: 60px;
+  }
+  .service-desc {
+    font-size: 0.85rem;
+    color: var(--text-gray);
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+    flex: 1;
+  }
+
+  /* PACKAGES */
+  .packages {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+    margin-bottom: 1.2rem;
+  }
+  .package {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    padding: 0.7rem 0.8rem;
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+  .package:hover { border-color: var(--pink); }
+  .package.active { border-color: var(--pink); }
+  .package-name {
+    font-size: 0.7rem;
+    color: var(--text-gray);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.2rem;
+  }
+  .package-price {
+    font-weight: 600;
+    color: var(--pink);
+    font-size: 0.95rem;
+  }
+  .package-per {
+    font-size: 0.65rem;
+    color: var(--text-gray);
+    margin-top: 0.1rem;
+  }
+
+  .service-actions {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: auto;
+  }
+  .btn-buy {
+    flex: 1;
+    background: var(--pink);
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+  .btn-buy:hover { background: var(--pink-dark); }
+  .btn-book {
+    flex: 1;
+    background: transparent;
+    color: white;
+    border: 1px solid var(--border);
+    padding: 0.8rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.2s;
+  }
+  .btn-book:hover { border-color: var(--pink); color: var(--pink); }
+
+  /* ===== CATEGORY DIVIDER ===== */
+  .category-divider {
+    grid-column: 1 / -1;
+    padding: 2rem 0 1rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 0.5rem;
+  }
+  .category-divider h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--charcoal);
+    font-size: 2rem;
+    font-weight: 400;
+  }
+  .category-divider .count {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    margin-left: 1rem;
+    font-style: normal;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--charcoal);
+    border-top: 1px solid rgba(163,145,137,0.2);
+    padding: 3rem;
+    text-align: center;
+    color: rgba(245,240,234,0.5);
+    font-size: 0.85rem;
+  }
+  footer a { color: var(--gold); text-decoration: none; }
+  footer a:hover { color: var(--pink-light); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .top-bar, nav, .filter-bar, .laser-hero, .services-section { padding-left: 1rem; padding-right: 1rem; }
+    .nav-links { display: none; }
+    .laser-hero h1 { font-size: 2.5rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .filter-bar { position: relative; top: 0; }
+    .filter-count { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============= TOP BAR ============= -->
+<div class="top-bar">
+  <div>📍 19 Av. Shamrock, Montréal QC · +1 (438) 260-5660</div>
+  <div>FR / EN</div>
+</div>
+
+<!-- ============= NAV ============= -->
+<nav>
+  <a class="logo" href="index.html">
+    <div class="logo-stones">
+      <div class="stone stone-top"></div>
+      <div class="stone stone-mid"></div>
+      <div class="stone stone-bot"></div>
+    </div>
+    <div class="logo-text">SKINE'S</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#treatments">Treatments</a></li>
+    <li><a href="laser.html" class="active">Laser</a></li>
+    <li><a href="index.html#gallery">Gallery</a></li>
+    <li><a href="index.html#reviews">Reviews</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <button class="nav-cta" onclick="window.open('https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf','_blank')">Book Now</button>
+</nav>
+
+<!-- ============= HERO ============= -->
+<section class="laser-hero">
+  <div class="breadcrumb">
+    <a href="index.html">Accueil</a>
+    <span>›</span>
+    <span style="color:var(--pink);">Épilation laser</span>
+  </div>
+  <h1>Épilation laser</h1>
+  <p class="subtitle">Découvrez nos traitements laser haute précision avec la technologie Clarity II. Une peau lisse, durable et confortable. Des résultats visibles dès les premières séances.</p>
+</section>
+
+<!-- ============= FILTER BAR ============= -->
+<div class="filter-bar">
+  <input type="text" class="search-input" id="searchInput" placeholder="Rechercher une zone..." oninput="filterServices()">
+  <button class="filter-btn active" onclick="setFilter('all', this)">Tous</button>
+  <button class="filter-btn" onclick="setFilter('visage', this)">Visage</button>
+  <button class="filter-btn" onclick="setFilter('corps', this)">Corps</button>
+  <button class="filter-btn" onclick="setFilter('intime', this)">Intime</button>
+  <button class="filter-btn" onclick="setFilter('hommes', this)">Hommes</button>
+  <button class="filter-btn" onclick="setFilter('combo', this)">Forfaits</button>
+  <span class="filter-count"><strong id="resultCount">30</strong> services</span>
+</div>
+
+<!-- ============= SERVICES GRID ============= -->
+<section class="services-section">
+  <div class="services-grid" id="servicesGrid">
+
+    <!-- ========== VISAGE ========== -->
+    <div class="category-divider">
+      <h2>Visage <span class="count">9 services</span></h2>
+    </div>
+
+    <!-- 1. Lèvre supérieure -->
+    <div class="service-card" data-category="visage" data-name="lèvres lèvre supérieure">
+      <div class="service-image">
+        <span class="service-zone-tag">Visage</span>
+        <div class="img-placeholder">Photo · Lèvres</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Lèvres</h3>
+        <p class="service-desc">Cibler les poils de la lèvre supérieure pour une peau plus lisse.</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('Lèvres')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('Lèvres')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Lèvre & Menton -->
+    <div class="service-card" data-category="visage" data-name="lèvre menton">
+      <div class="service-image">
+        <span class="service-zone-tag">Visage</span>
+        <div class="img-placeholder">Photo · Lèvre & Menton</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Lèvre & menton</h3>
+        <p class="service-desc">Traitez la lèvre supérieure et le menton pour une épilation faciale complète.</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('Lèvre & menton')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('Lèvre & menton')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Menton -->
+    <div class="service-card" data-category="visage" data-name="menton">
+      <div class="service-image">
+        <span class="service-zone-tag">Visage</span>
+        <div class="img-placeholder">Photo · Menton</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Menton</h3>
+        <p class="service-desc">Réduit le nombre de poils incarnés et lisse la zone du menton.</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('Menton')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('Menton')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Côtés du visage -->
+    <div class="service-card" data-category="visage" data-name="côtés visage joues">
+      <div class="service-image">
+        <span class="service-zone-tag">Visage</span>
+        <div class="img-placeholder">Photo · Côtés du visage</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Côtés du visage</h3>
+        <p class="service-desc">Élimine les poils des côtés du visage pour une peau plus lisse et uniforme.</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('Côtés du visage')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('Côtés du visage')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Visage complet -->
+    <div class="service-card" data-category="visage" data-name="visage complet">
+      <div class="service-image">
+        <span class="service-zone-tag">Visage</span>
+        <div class="img-placeholder">Photo · Visage complet</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Visage complet</h3>
+        <p class="service-desc">Cible plusieurs zones simultanément (tempes à mâchoire, hors sourcils et yeux).</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('Visage complet')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('Visage complet')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. Visage & Cou -->
+    <div class="service-card" data-category="visage" data-name="visage cou">
+      <div class="service-image">
+        <span class="service-zone-tag">Visage</span>
+        <div class="img-placeholder">Photo · Visage & Cou</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Visage & cou</h3>
+        <p class="service-desc">Pour un résultat lisse et uniforme, traitez le visage et le cou en une séance.</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('Visage & cou')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('Visage & cou')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. Cou (devant ou derrière) -->
+    <div class="service-card" data-category="visage corps" data-name="cou">
+      <div class="service-image">
+        <span class="service-zone-tag">Visage</span>
+        <div class="img-placeholder">Photo · Cou</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Cou (devant ou derrière)</h3>
+        <p class="service-desc">Réduit les poils indésirables sur le devant ou l'arrière du cou.</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('Cou')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('Cou')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8. Oreilles -->
+    <div class="service-card" data-category="visage hommes" data-name="oreilles">
+      <div class="service-image">
+        <span class="service-zone-tag">Visage</span>
+        <div class="img-placeholder">Photo · Oreilles</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Oreilles</h3>
+        <p class="service-desc">Élimine les poils visibles des oreilles de manière sûre et efficace.</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('Oreilles')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('Oreilles')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9. Soin de barbe -->
+    <div class="service-card" data-category="visage hommes" data-name="barbe sculpture">
+      <div class="service-image">
+        <span class="service-zone-tag">Hommes</span>
+        <div class="img-placeholder">Photo · Soin de barbe</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Soin de barbe</h3>
+        <p class="service-desc">Sculpture de la barbe : affine et définit la forme naturelle pour des lignes nettes.</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('Soin de barbe')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('Soin de barbe')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== CORPS ========== -->
+    <div class="category-divider">
+      <h2>Corps <span class="count">14 services</span></h2>
+    </div>
+
+    <!-- 10. Aisselles -->
+    <div class="service-card" data-category="corps" data-name="aisselles">
+      <div class="service-image">
+        <span class="service-zone-tag">Corps</span>
+        <div class="img-placeholder">Photo · Aisselles</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Aisselles</h3>
+        <p class="service-desc">Réduit la repousse et les irritations pour des résultats lisses et durables.</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('Aisselles')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('Aisselles')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 11. Demi-bras -->
+    <div class="service-card" data-category="corps" data-name="demi-bras bras">
+      <div class="service-image">
+        <span class="service-zone-tag">Corps</span>
+        <div class="img-placeholder">Photo · Demi-bras</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Demi-bras</h3>
+        <p class="service-desc">Peau douce sur le haut ou le bas des bras. Idéal pour les zones exposées.</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('Demi-bras')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('Demi-bras')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 12. Bras 1/4 -->
+    <div class="service-card" data-category="corps" data-name="bras quart">
+      <div class="service-image">
+        <span class="service-zone-tag">Corps</span>
+        <div class="img-placeholder">Photo · Bras 1/4</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Bras (¼)</h3>
+        <p class="service-desc">Cible avec précision les zones spécifiques des bras, idéal pour les retouches.</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('Bras 1/4')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('Bras 1/4')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 13. Bras entiers -->
+    <div class="service-card" data-category="corps" data-name="bras entiers complets">
+      <div class="service-image">
+        <span class="service-zone-tag">Corps</span>
+        <div class="img-placeholder">Photo · Bras entiers</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Bras entiers</h3>
+        <p class="service-desc">L'épilation laser intégrale des bras élimine les poils des épaules aux poignets.</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('Bras entiers')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('Bras entiers')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 14. Aréole -->
+    <div class="service-card" data-category="corps" data-name="aréole poitrine">
+      <div class="service-image">
+        <span class="service-zone-tag">Corps</span>
+        <div class="img-placeholder">Photo · Aréole</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Aréole</h3>
+        <p class="service-desc">Élimine les poils fins autour de l'aréole avec soin et précision.</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('Aréole')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('Aréole')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 15. Épaules -->
+    <div class="service-card" data-category="corps hommes" data-name="épaules">
+      <div class="service-image">
+        <span class="service-zone-tag">Corps</span>
+        <div class="img-placeholder">Photo · Épaules</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Épaules</h3>
+        <p class="service-desc">Pour un haut du corps plus net et plus soigné.</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('Épaules')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('Épaules')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 16. Torse -->
+    <div class="service-card" data-category="corps hommes" data-name="torse poitrine">
+      <div class="service-image">
+        <span class="service-zone-tag">Hommes</span>
+        <div class="img-placeholder">Photo · Torse</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Torse</h3>
+        <p class="service-desc">Réduit la repousse et améliore le grain de peau.</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('Torse')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('Torse')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 17. Ventre -->
+    <div class="service-card" data-category="corps" data-name="ventre estomac">
+      <div class="service-image">
+        <span class="service-zone-tag">Corps</span>
+        <div class="img-placeholder">Photo · Ventre</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Ventre</h3>
+        <p class="service-desc">Réduit la repousse et unifie le teint de la peau sur l'ensemble du torse.</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('Ventre')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('Ventre')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 18. Snail Trail -->
+    <div class="service-card" data-category="corps hommes" data-name="snail trail bas torse">
+      <div class="service-image">
+        <span class="service-zone-tag">Hommes</span>
+        <div class="img-placeholder">Photo · Snail Trail</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Snail trail</h3>
+        <p class="service-desc">Complète votre traitement par l'épilation du bas du torse.</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('Snail trail')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('Snail trail')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 19. Torse & Ventre -->
+    <div class="service-card" data-category="corps hommes" data-name="torse ventre poitrine estomac">
+      <div class="service-image">
+        <span class="service-zone-tag">Hommes</span>
+        <div class="img-placeholder">Photo · Torse & Ventre</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Torse & ventre</h3>
+        <p class="service-desc">Pour une épilation laser complète du torse, traitez la poitrine et l'estomac.</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('Torse & ventre')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('Torse & ventre')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 20. Quart du dos -->
+    <div class="service-card" data-category="corps hommes" data-name="quart dos">
+      <div class="service-image">
+        <span class="service-zone-tag">Corps</span>
+        <div class="img-placeholder">Photo · Quart du dos</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Dos (¼)</h3>
+        <p class="service-desc">Cible le quart du dos, haut ou bas selon vos besoins.</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('Dos 1/4')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('Dos 1/4')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 21. Demi-dos -->
+    <div class="service-card" data-category="corps hommes" data-name="demi-dos">
+      <div class="service-image">
+        <span class="service-zone-tag">Corps</span>
+        <div class="img-placeholder">Photo · Demi-dos</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Demi-dos</h3>
+        <p class="service-desc">Cible le haut ou le bas du dos selon vos besoins.</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('Demi-dos')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('Demi-dos')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 22. Dos entier -->
+    <div class="service-card" data-category="corps hommes" data-name="dos entier complet">
+      <div class="service-image">
+        <span class="service-zone-tag">Hommes</span>
+        <div class="img-placeholder">Photo · Dos entier</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Dos entier</h3>
+        <p class="service-desc">Couverture complète et peau parfaitement lisse.</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('Dos entier')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('Dos entier')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 23. Dos & Épaules -->
+    <div class="service-card" data-category="corps hommes" data-name="dos épaules">
+      <div class="service-image">
+        <span class="service-zone-tag">Hommes</span>
+        <div class="img-placeholder">Photo · Dos & Épaules</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Dos & épaules</h3>
+        <p class="service-desc">Inclut le dos entier et les épaules (zone t-shirt). N'inclut pas la nuque.</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('Dos & épaules')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('Dos & épaules')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 24. Fesses -->
+    <div class="service-card" data-category="corps intime" data-name="fesses">
+      <div class="service-image">
+        <span class="service-zone-tag">Corps</span>
+        <div class="img-placeholder">Photo · Fesses</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Fesses</h3>
+        <p class="service-desc">Ciblez les poils des fesses pour une peau plus lisse et un entretien facile.</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('Fesses')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('Fesses')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 25. Demi-jambes -->
+    <div class="service-card" data-category="corps" data-name="demi-jambes">
+      <div class="service-image">
+        <span class="service-zone-tag">Corps</span>
+        <div class="img-placeholder">Photo · Demi-jambes</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Demi-jambes</h3>
+        <p class="service-desc">Bas (orteils au genou) ou haut (genou à la cuisse) pour une sensation de douceur.</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('Demi-jambes')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('Demi-jambes')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 26. Jambes 1/4 -->
+    <div class="service-card" data-category="corps" data-name="jambes quart">
+      <div class="service-image">
+        <span class="service-zone-tag">Corps</span>
+        <div class="img-placeholder">Photo · Jambes 1/4</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Jambes (¼)</h3>
+        <p class="service-desc">Cible une zone précise, en haut ou en bas de la jambe.</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('Jambes 1/4')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('Jambes 1/4')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 27. Jambes complètes -->
+    <div class="service-card" data-category="corps" data-name="jambes complètes entières">
+      <div class="service-image">
+        <span class="service-zone-tag">Corps</span>
+        <div class="img-placeholder">Photo · Jambes complètes</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Jambes complètes</h3>
+        <p class="service-desc">Ciblez le haut et le bas des jambes avec l'épilation laser complète.</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('Jambes complètes')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('Jambes complètes')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== INTIME ========== -->
+    <div class="category-divider">
+      <h2>Zone intime <span class="count">3 services</span></h2>
+    </div>
+
+    <!-- 28. Maillot -->
+    <div class="service-card" data-category="intime" data-name="maillot">
+      <div class="service-image">
+        <span class="service-zone-tag">Intime</span>
+        <div class="img-placeholder">Photo · Maillot</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Maillot</h3>
+        <p class="service-desc">Une petite bande le long du bord de la culotte, à l'intérieur de chaque cuisse.</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('Maillot')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('Maillot')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 29. Maillot brésilien -->
+    <div class="service-card" data-category="intime" data-name="maillot brésilien">
+      <div class="service-image">
+        <span class="service-zone-tag">Intime</span>
+        <div class="img-placeholder">Photo · Maillot brésilien</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Maillot brésilien</h3>
+        <p class="service-desc">Couvre la zone pubienne et le maillot. La zone postérieure n'est pas incluse.</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('Maillot brésilien')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('Maillot brésilien')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 30. Brésilien Hollywood -->
+    <div class="service-card" data-category="intime" data-name="brésilien hollywood intégral">
+      <div class="service-image">
+        <span class="service-zone-tag">Intime</span>
+        <div class="img-placeholder">Photo · Brésilien Hollywood</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Brésilien Hollywood</h3>
+        <p class="service-desc">Élimine tous les poils de la zone intime. Comprend maillot intégral, brésilien et fesses.</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('Brésilien Hollywood')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('Brésilien Hollywood')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== FORFAITS COMBO ========== -->
+    <div class="category-divider">
+      <h2>Forfaits combinés <span class="count">7 services</span></h2>
+    </div>
+
+    <!-- 31. Brésilien & Aisselles -->
+    <div class="service-card" data-category="combo intime" data-name="brésilien aisselles">
+      <div class="service-image">
+        <span class="service-zone-tag">Forfait</span>
+        <div class="img-placeholder">Photo · Brésilien + Aisselles</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Brésilien & aisselles</h3>
+        <p class="service-desc">Traitez le maillot brésilien et les aisselles en une seule séance.</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('Brésilien & aisselles')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('Brésilien & aisselles')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 32. String & Aisselles -->
+    <div class="service-card" data-category="combo intime" data-name="string aisselles">
+      <div class="service-image">
+        <span class="service-zone-tag">Forfait</span>
+        <div class="img-placeholder">Photo · String + Aisselles</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">String & aisselles</h3>
+        <p class="service-desc">Réduit les poils au niveau du maillot et des aisselles en une séance.</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('String & aisselles')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('String & aisselles')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 33. Hollywood & Aisselles -->
+    <div class="service-card" data-category="combo intime" data-name="hollywood aisselles">
+      <div class="service-image">
+        <span class="service-zone-tag">Forfait</span>
+        <div class="img-placeholder">Photo · Hollywood + Aisselles</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Hollywood & aisselles</h3>
+        <p class="service-desc">Brésilien hollywoodien et aisselles en une seule séance.</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('Hollywood & aisselles')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('Hollywood & aisselles')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 34. Demi-jambes & Brésilien -->
+    <div class="service-card" data-category="combo intime" data-name="demi-jambes brésilien">
+      <div class="service-image">
+        <span class="service-zone-tag">Forfait</span>
+        <div class="img-placeholder">Photo · Demi-jambes + Brésilien</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Demi-jambes & brésilien</h3>
+        <p class="service-desc">Maillot brésilien et demi-jambes en une seule séance pour les femmes.</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('Demi-jambes & brésilien')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('Demi-jambes & brésilien')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 35. Demi-jambes, Brésilien & Aisselles -->
+    <div class="service-card" data-category="combo intime" data-name="demi-jambes brésilien aisselles">
+      <div class="service-image">
+        <span class="service-zone-tag">Forfait</span>
+        <div class="img-placeholder">Photo · Demi-jambes + Brésilien + Aisselles</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Demi-jambes, brésilien & aisselles</h3>
+        <p class="service-desc">Demi-jambes, maillot brésilien et aisselles en une seule séance.</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('Demi-jambes, brésilien & aisselles')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('Demi-jambes, brésilien & aisselles')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 36. Brésilien & Jambes complètes -->
+    <div class="service-card" data-category="combo intime" data-name="brésilien jambes complètes">
+      <div class="service-image">
+        <span class="service-zone-tag">Forfait</span>
+        <div class="img-placeholder">Photo · Brésilien + Jambes complètes</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Brésilien & jambes complètes</h3>
+        <p class="service-desc">Brésilien intégrale et jambes complètes en une séance.</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('Brésilien & jambes complètes')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('Brésilien & jambes complètes')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 37. Bras, Jambes, Brésilien & Aisselles -->
+    <div class="service-card" data-category="combo intime" data-name="bras jambes brésilien aisselles">
+      <div class="service-image">
+        <span class="service-zone-tag">Forfait</span>
+        <div class="img-placeholder">Photo · Forfait complet</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Bras, jambes, brésilien & aisselles</h3>
+        <p class="service-desc">Demi-bras, demi-jambes, brésilien et aisselles. Le forfait le plus complet.</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('Forfait complet')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('Forfait complet')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 38. Jambes & Bras -->
+    <div class="service-card" data-category="combo" data-name="jambes bras">
+      <div class="service-image">
+        <span class="service-zone-tag">Forfait</span>
+        <div class="img-placeholder">Photo · Jambes + Bras</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Jambes & bras</h3>
+        <p class="service-desc">Traitez la moitié des bras et des jambes simultanément.</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('Jambes & bras')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('Jambes & bras')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 39. Torse, Ventre, Épaules & Demi-dos -->
+    <div class="service-card" data-category="combo hommes" data-name="torse ventre épaules demi-dos">
+      <div class="service-image">
+        <span class="service-zone-tag">Hommes</span>
+        <div class="img-placeholder">Photo · Haut du corps</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Torse, ventre, épaules & demi-dos</h3>
+        <p class="service-desc">Épilation laser du haut du corps en une séance.</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('Haut du corps')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('Haut du corps')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 40. Corps entier (sans dos) -->
+    <div class="service-card" data-category="combo" data-name="corps entier sans dos">
+      <div class="service-image">
+        <span class="service-zone-tag">Premium</span>
+        <div class="img-placeholder">Photo · Corps entier (sans dos)</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Corps entier (sans dos)</h3>
+        <p class="service-desc">Épilation laser intégrale du corps, à l'exception du dos et des épaules.</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('Corps entier (sans dos)')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('Corps entier (sans dos)')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 41. Corps entier -->
+    <div class="service-card" data-category="combo" data-name="corps entier full body">
+      <div class="service-image">
+        <span class="service-zone-tag">Premium</span>
+        <div class="img-placeholder">Photo · Corps entier</div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-title">Corps entier</h3>
+        <p class="service-desc">L'épilation laser intégrale cible toutes les zones principales pour une peau parfaitement lisse.</p>
+        <div class="packages">
+          <div class="package active"><div class="package-name">1 Traitement</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">3 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">6 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+          <div class="package"><div class="package-name">10 traitements</div><div class="package-price">000 $</div><div class="package-per">000 $ / séance</div></div>
+        </div>
+        <div class="service-actions">
+          <button class="btn-book" onclick="bookService('Corps entier')">Réserver</button>
+          <button class="btn-buy" onclick="buyService('Corps entier')">Acheter</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============= FOOTER ============= -->
+<footer>
+  <p style="margin-bottom: 0.8rem;">📍 19 Av. Shamrock, Montréal, QC H2S 1A3 · 📞 <a href="tel:+14382605660">+1 (438) 260-5660</a></p>
+  <p>© 2025 Skine's Spa · <a href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank">Réserver sur Fresha</a></p>
+</footer>
+
+<script>
+  // ===== FILTERING =====
+  let currentFilter = 'all';
+
+  function setFilter(filter, btn) {
+    currentFilter = filter;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filterServices();
+  }
+
+  function filterServices() {
+    const search = document.getElementById('searchInput').value.toLowerCase().trim();
+    const cards = document.querySelectorAll('.service-card');
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+      const category = card.dataset.category || '';
+      const name = (card.dataset.name || '').toLowerCase();
+      const title = card.querySelector('.service-title').textContent.toLowerCase();
+
+      const matchesFilter = currentFilter === 'all' || category.includes(currentFilter);
+      const matchesSearch = !search || name.includes(search) || title.includes(search);
+
+      if (matchesFilter && matchesSearch) {
+        card.style.display = '';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    // Hide empty category dividers
+    document.querySelectorAll('.category-divider').forEach(div => {
+      let next = div.nextElementSibling;
+      let hasVisible = false;
+      while (next && !next.classList.contains('category-divider')) {
+        if (next.style.display !== 'none') { hasVisible = true; break; }
+        next = next.nextElementSibling;
+      }
+      div.style.display = hasVisible ? '' : 'none';
+    });
+
+    document.getElementById('resultCount').textContent = visibleCount;
+  }
+
+  // ===== PACKAGE SELECTION =====
+  document.querySelectorAll('.service-card').forEach(card => {
+    const packages = card.querySelectorAll('.package');
+    packages.forEach(pkg => {
+      pkg.addEventListener('click', () => {
+        packages.forEach(p => p.classList.remove('active'));
+        pkg.classList.add('active');
+      });
+    });
+  });
+
+  // ===== ACTIONS =====
+  function bookService(name) {
+    window.open('https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf', '_blank');
+  }
+
+  function buyService(name) {
+    window.open('https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf', '_blank');
+  }
+</script>
+
+</body>
+</html>

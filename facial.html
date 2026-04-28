@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soins du Visage · Skine's Spa Montréal</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --cream: #F5F0EA; --cream-light: #FAF6F1;
+    --terracotta: #C68B6E; --terracotta-dark: #B8755A;
+    --terracotta-light: #E8D4C5; --stone: #A39189;
+    --stone-dark: #7A6A62; --charcoal: #3A342F; --gold: #C9A878;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--charcoal); font-weight: 300; line-height: 1.7; }
+
+  .top-bar { background: var(--charcoal); color: rgba(245,240,234,0.8); padding: 0.5rem 3rem; font-size: 0.75rem; display: flex; justify-content: space-between; }
+  .top-bar a { color: rgba(245,240,234,0.8); text-decoration: none; }
+  .top-bar a:hover { color: var(--gold); }
+
+  nav { background: var(--cream); padding: 1.5rem 3rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(168,145,137,0.15); }
+  .logo { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; }
+  .logo-stones { width: 36px; height: 44px; position: relative; }
+  .logo-stones .stone { position: absolute; border-radius: 50%; left: 50%; transform: translateX(-50%); }
+  .stone-top { width: 12px; height: 8px; background: var(--stone); top: 0; }
+  .stone-mid { width: 22px; height: 13px; background: var(--terracotta-dark); top: 10px; }
+  .stone-bot { width: 32px; height: 18px; background: var(--terracotta); top: 24px; }
+  .logo-text { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; letter-spacing: 0.4em; color: var(--charcoal); font-weight: 500; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--charcoal); font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; transition: color 0.3s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--terracotta); }
+  .nav-cta { background: var(--charcoal); color: var(--cream); padding: 0.8rem 1.8rem; border: none; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; font-family: 'Inter', sans-serif; transition: background 0.3s; text-decoration: none; }
+  .nav-cta:hover { background: var(--terracotta); }
+
+  /* HERO */
+  .page-hero { background: var(--terracotta-light); padding: 7rem 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .breadcrumb { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--stone-dark); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
+  .breadcrumb a { color: var(--stone-dark); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--terracotta); }
+  .eyebrow { font-size: 0.72rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem; }
+  .eyebrow::before { content: ''; width: 30px; height: 1px; background: var(--terracotta); }
+  .page-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: 4rem; line-height: 1.05; font-weight: 400; margin-bottom: 1rem; color: var(--charcoal); }
+  .page-hero h1 em { font-style: italic; color: var(--terracotta); font-weight: 300; }
+  .page-hero p { color: var(--stone-dark); font-size: 1rem; line-height: 1.8; margin-bottom: 2rem; max-width: 500px; }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-terra { background: var(--terracotta); color: var(--cream); padding: 1rem 2.2rem; border: none; font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.3s; text-decoration: none; display: inline-block; }
+  .btn-terra:hover { background: var(--terracotta-dark); transform: translateY(-2px); }
+  .btn-outline { background: transparent; color: var(--charcoal); padding: 1rem 2rem; border: 1px solid rgba(163,145,137,0.5); font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.3s; text-decoration: none; display: inline-block; }
+  .btn-outline:hover { border-color: var(--terracotta); color: var(--terracotta); }
+  .hero-image { aspect-ratio: 4/5; background: var(--cream); overflow: hidden; }
+  .hero-image img { width: 100%; height: 100%; object-fit: cover; }
+  .img-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: var(--cream); color: var(--stone); font-family: 'Cormorant Garamond', serif; font-style: italic; }
+
+  /* MARQUEE */
+  .marquee { background: var(--charcoal); color: var(--cream); padding: 1.2rem 0; overflow: hidden; white-space: nowrap; }
+  .marquee-track { display: inline-block; animation: scroll 35s linear infinite; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.3rem; }
+  .marquee-track span { margin: 0 2rem; }
+  .marquee-track .dot { color: var(--terracotta); }
+  @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* SERVICES */
+  .services-section { padding: 6rem 4rem; background: var(--cream); }
+  .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; gap: 2rem; flex-wrap: wrap; }
+  .section-eyebrow { font-size: 0.72rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem; }
+  .section-eyebrow::before { content: ''; width: 30px; height: 1px; background: var(--terracotta); }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: 3.2rem; color: var(--charcoal); line-height: 1.1; font-weight: 400; }
+  .section-title em { font-style: italic; color: var(--terracotta); font-weight: 300; }
+
+  /* Cards alternés */
+  .facial-service { display: grid; grid-template-columns: 1fr 1fr; margin-bottom: 2px; border: 1px solid rgba(163,145,137,0.12); }
+  .facial-service:nth-child(even) { direction: rtl; }
+  .facial-service:nth-child(even) > * { direction: ltr; }
+  .facial-img { aspect-ratio: 4/3; overflow: hidden; position: relative; }
+  .facial-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
+  .facial-service:hover .facial-img img { transform: scale(1.04); }
+  .facial-img .img-placeholder { background: var(--terracotta-light); }
+  .facial-content { background: var(--cream-light); padding: 3rem; display: flex; flex-direction: column; justify-content: center; }
+  .facial-cat { font-size: 0.68rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 0.8rem; }
+  .facial-name { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 400; margin-bottom: 0.8rem; line-height: 1.2; color: var(--charcoal); }
+  .facial-desc { color: var(--stone-dark); font-size: 0.9rem; line-height: 1.8; margin-bottom: 1.8rem; }
+  .facial-details { display: flex; gap: 2rem; margin-bottom: 1.5rem; padding: 1rem 0; border-top: 1px solid rgba(163,145,137,0.2); border-bottom: 1px solid rgba(163,145,137,0.2); }
+  .detail-item { display: flex; flex-direction: column; gap: 0.2rem; }
+  .detail-label { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--stone); }
+  .detail-value { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--terracotta); font-weight: 500; }
+  .facial-actions { display: flex; gap: 0.8rem; }
+  .btn-sm { padding: 0.85rem 1.6rem; border: none; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.2s; text-decoration: none; display: inline-block; }
+  .btn-sm-fill { background: var(--charcoal); color: var(--cream); }
+  .btn-sm-fill:hover { background: var(--terracotta); }
+  .btn-sm-out { background: transparent; color: var(--charcoal); border: 1px solid rgba(163,145,137,0.4); }
+  .btn-sm-out:hover { border-color: var(--terracotta); color: var(--terracotta); }
+
+  /* CTA STRIP */
+  .cta-strip { background: var(--charcoal); padding: 5rem 4rem; text-align: center; color: var(--cream); }
+  .cta-strip h2 { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 400; margin-bottom: 1rem; }
+  .cta-strip h2 em { font-style: italic; color: var(--gold); }
+  .cta-strip p { color: rgba(245,240,234,0.65); font-size: 0.95rem; margin-bottom: 2.5rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+  .btn-gold { background: var(--gold); color: var(--charcoal); padding: 1.1rem 2.5rem; border: none; font-size: 0.78rem; letter-spacing: 0.25em; text-transform: uppercase; cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.3s; text-decoration: none; display: inline-block; font-weight: 500; }
+  .btn-gold:hover { background: var(--cream); transform: translateY(-2px); }
+
+  /* FOOTER */
+  footer { background: var(--charcoal); color: rgba(245,240,234,0.5); padding: 2.5rem 4rem; }
+  .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; padding-bottom: 1.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(245,240,234,0.08); }
+  .footer-links { display: flex; gap: 2rem; }
+  .footer-links a { color: rgba(245,240,234,0.5); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; letter-spacing: 0.1em; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-bottom { font-size: 0.78rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+
+  @media (max-width: 768px) {
+    .top-bar, nav, .page-hero, .services-section, .cta-strip, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .page-hero { grid-template-columns: 1fr; }
+    nav { flex-wrap: wrap; gap: 1rem; }
+    .nav-links { display: none; }
+    .facial-service, .facial-service:nth-child(even) { grid-template-columns: 1fr; direction: ltr; }
+    .page-hero h1 { font-size: 2.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div>📍 19 Av. Shamrock, Montréal QC · +1 (438) 260-5660</div>
+  <a href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank">Réserver →</a>
+</div>
+
+<nav>
+  <a class="logo" href="index.html">
+    <div class="logo-stones"><div class="stone stone-top"></div><div class="stone stone-mid"></div><div class="stone stone-bot"></div></div>
+    <div class="logo-text">SKINE'S</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="head-spa.html">Head Spa</a></li>
+    <li><a href="laser.html">Laser</a></li>
+    <li><a href="facial.html" class="active">Facial</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank">Book Now</a>
+</nav>
+
+<section class="page-hero">
+  <div>
+    <div class="breadcrumb"><a href="index.html">Accueil</a><span>›</span><span style="color:var(--terracotta);">Soins du Visage</span></div>
+    <div class="eyebrow">Soin personnalisé</div>
+    <h1>Soins du<br><em>visage</em></h1>
+    <p>Traitements faciaux sur mesure pour illuminer, hydrater et régénérer votre peau. Chaque soin est conçu pour votre type de peau et vos besoins spécifiques.</p>
+    <div class="hero-actions">
+      <a class="btn-terra" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank">Réserver maintenant</a>
+      <a class="btn-outline" href="#soins">Voir les soins</a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <!--<img src="facial-hero.jpg" alt="Soins du Visage Skine's">-->
+    <div class="img-placeholder">Votre photo Facial ici</div>
+  </div>
+</section>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Hydratation intense</span><span class="dot"> ◆ </span>
+    <span>Anti-âge</span><span class="dot"> ◆ </span>
+    <span>Éclat & Luminosité</span><span class="dot"> ◆ </span>
+    <span>Soin personnalisé</span><span class="dot"> ◆ </span>
+    <span>Peau régénérée</span><span class="dot"> ◆ </span>
+    <span>Hydratation intense</span><span class="dot"> ◆ </span>
+    <span>Anti-âge</span><span class="dot"> ◆ </span>
+    <span>Éclat & Luminosité</span><span class="dot"> ◆ </span>
+    <span>Soin personnalisé</span><span class="dot"> ◆ </span>
+    <span>Peau régénérée</span><span class="dot"> ◆ </span>
+  </div>
+</div>
+
+<section class="services-section" id="soins">
+  <div class="section-header">
+    <div>
+      <div class="section-eyebrow">Nos soins faciaux</div>
+      <h2 class="section-title">Pour une peau<br><em>rayonnante</em>.</h2>
+    </div>
+    <p style="font-size:0.92rem;color:var(--stone-dark);max-width:320px;line-height:1.8;">Chaque traitement est adapté à votre peau pour des résultats visibles et durables.</p>
+  </div>
+
+  <!-- Soin 1 -->
+  <div class="facial-service">
+    <div class="facial-img">
+      <!--<img src="facial-hydratant.jpg" alt="Soin Hydratant">-->
+      <div class="img-placeholder">Photo · Soin Hydratant</div>
+    </div>
+    <div class="facial-content">
+      <div class="facial-cat">Facial · Hydratation</div>
+      <div class="facial-name">Soin hydratant intense</div>
+      <p class="facial-desc">Un soin profondément hydratant qui restaure l'équilibre hydrique de la peau. Idéal pour les peaux sèches, ternes ou déshydratées. Laisse la peau souple, lumineuse et confortable.</p>
+      <div class="facial-details">
+        <div class="detail-item"><div class="detail-label">Durée</div><div class="detail-value">60 min</div></div>
+        <div class="detail-item"><div class="detail-label">Prix</div><div class="detail-value">000 $</div></div>
+        <div class="detail-item"><div class="detail-label">Type</div><div class="detail-value">Tous types</div></div>
+      </div>
+      <div class="facial-actions">
+        <a class="btn-sm btn-sm-out" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank">En savoir plus</a>
+        <a class="btn-sm btn-sm-fill" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank">Réserver →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Soin 2 -->
+  <div class="facial-service">
+    <div class="facial-img">
+      <!--<img src="facial-eclat.jpg" alt="Soin Éclat">-->
+      <div class="img-placeholder">Photo · Soin Éclat</div>
+    </div>
+    <div class="facial-content">
+      <div class="facial-cat">Facial · Éclat</div>
+      <div class="facial-name">Soin éclat & luminosité</div>
+      <p class="facial-desc">Révélez l'éclat naturel de votre peau grâce à ce soin illuminateur. Exfoliation douce, masque brightening et sérum vitamine C pour une peau visiblement plus lumineuse.</p>
+      <div class="facial-details">
+        <div class="detail-item"><div class="detail-label">Durée</div><div class="detail-value">75 min</div></div>
+        <div class="detail-item"><div class="detail-label">Prix</div><div class="detail-value">000 $</div></div>
+        <div class="detail-item"><div class="detail-label">Type</div><div class="detail-value">Terne / Fatiguée</div></div>
+      </div>
+      <div class="facial-actions">
+        <a class="btn-sm btn-sm-out" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank">En savoir plus</a>
+        <a class="btn-sm btn-sm-fill" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank">Réserver →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Soin 3 -->
+  <div class="facial-service">
+    <div class="facial-img">
+      <!--<img src="facial-antiage.jpg" alt="Soin Anti-âge">-->
+      <div class="img-placeholder">Photo · Soin Anti-âge</div>
+    </div>
+    <div class="facial-content">
+      <div class="facial-cat">Facial · Anti-âge</div>
+      <div class="facial-name">Soin anti-âge régénérant</div>
+      <p class="facial-desc">Traitement de pointe pour atténuer les signes du temps. Stimule la production de collagène, réduit les rides fines et raffermit le contour du visage pour une peau plus jeune.</p>
+      <div class="facial-details">
+        <div class="detail-item"><div class="detail-label">Durée</div><div class="detail-value">90 min</div></div>
+        <div class="detail-item"><div class="detail-label">Prix</div><div class="detail-value">000 $</div></div>
+        <div class="detail-item"><div class="detail-label">Type</div><div class="detail-value">Mature / Relâchée</div></div>
+      </div>
+      <div class="facial-actions">
+        <a class="btn-sm btn-sm-out" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank">En savoir plus</a>
+        <a class="btn-sm btn-sm-fill" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank">Réserver →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Soin 4 -->
+  <div class="facial-service">
+    <div class="facial-img">
+      <!--<img src="facial-purifiant.jpg" alt="Soin Purifiant">-->
+      <div class="img-placeholder">Photo · Soin Purifiant</div>
+    </div>
+    <div class="facial-content">
+      <div class="facial-cat">Facial · Purification</div>
+      <div class="facial-name">Soin purifiant & détox</div>
+      <p class="facial-desc">Nettoyage en profondeur des pores, élimination des impuretés et rééquilibrage du sébum. Idéal pour les peaux mixtes, grasses ou à tendance acnéique.</p>
+      <div class="facial-details">
+        <div class="detail-item"><div class="detail-label">Durée</div><div class="detail-value">60 min</div></div>
+        <div class="detail-item"><div class="detail-label">Prix</div><div class="detail-value">000 $</div></div>
+        <div class="detail-item"><div class="detail-label">Type</div><div class="detail-value">Mixte / Grasse</div></div>
+      </div>
+      <div class="facial-actions">
+        <a class="btn-sm btn-sm-out" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank">En savoir plus</a>
+        <a class="btn-sm btn-sm-fill" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank">Réserver →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Soin 5 -->
+  <div class="facial-service">
+    <div class="facial-img">
+      <!--<img src="facial-personnalise.jpg" alt="Soin Personnalisé">-->
+      <div class="img-placeholder">Photo · Soin Personnalisé</div>
+    </div>
+    <div class="facial-content">
+      <div class="facial-cat">Facial · Sur mesure</div>
+      <div class="facial-name">Soin personnalisé complet</div>
+      <p class="facial-desc">Un diagnostic de peau approfondi suivi d'un soin 100% adapté à vos besoins du moment. La combinaison parfaite de techniques et de produits pour votre peau unique.</p>
+      <div class="facial-details">
+        <div class="detail-item"><div class="detail-label">Durée</div><div class="detail-value">90 min</div></div>
+        <div class="detail-item"><div class="detail-label">Prix</div><div class="detail-value">000 $</div></div>
+        <div class="detail-item"><div class="detail-label">Type</div><div class="detail-value">Tous types</div></div>
+      </div>
+      <div class="facial-actions">
+        <a class="btn-sm btn-sm-out" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank">En savoir plus</a>
+        <a class="btn-sm btn-sm-fill" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank">Réserver →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<section class="cta-strip">
+  <h2>Prêt(e) à retrouver votre <em>éclat</em> ?</h2>
+  <p>Réservez votre soin du visage en ligne en quelques secondes. Nos thérapeutes vous attendent à Montréal.</p>
+  <a class="btn-gold" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank">Réserver sur Fresha →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <a class="logo" href="index.html" style="text-decoration:none;">
+      <div class="logo-stones"><div class="stone stone-top"></div><div class="stone stone-mid"></div><div class="stone stone-bot"></div></div>
+      <div class="logo-text" style="color:var(--cream);">SKINE'S</div>
+    </a>
+    <div class="footer-links">
+      <a href="index.html">Accueil</a>
+      <a href="head-spa.html">Head Spa</a>
+      <a href="laser.html">Laser</a>
+      <a href="https://www.instagram.com/skines.ca/" target="_blank">Instagram</a>
+      <a href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank">Fresha</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Skine's Spa · All rights reserved</span>
+    <span>19 Av. Shamrock, Montréal, QC H2S 1A3</span>
+  </div>
+</footer>
+
+</body>
+</html>
